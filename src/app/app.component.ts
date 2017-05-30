@@ -11,22 +11,7 @@ export class Hero {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  template:`
-  <h1>{{title}}</h1>
-  <h2>{{hero.name}} details!</h2>
-  <div></div>
-  <div><label>id: </label>{{hero.id}}</div>
-  <div><label>HP: </label>{{hero.hp-damage+hero.rs}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name">
-  </div>
-  <div>
-    <label>damage: </label>
-    <input tpye="number" [(ngModel)]="damage">
-  </div>
-  `
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Tour of heroes!';
