@@ -3,8 +3,11 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes | orderBy : ['-ini']">
-    <span class="badge">{{hero.id}}</span> <span class="badge">{{hero.ini}}</span> {{hero.name}}
-      <!-- <input tpye="number" [(ngModel)]="hero.ini"> -->
+    <!--input tpye="number" [(ngModel)]="hero.ini"-->
+    <span class="badge badge-ini">{{hero.ini}}</span>
+    <span class="badge badge-hp">{{hero.hp}}</span>
+    {{hero.name}}
+    <input tpye="number" [(ngModel)]="hero.ini">
   </li>
 </ul>
 
