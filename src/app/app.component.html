@@ -2,24 +2,24 @@
 
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes | orderBy : ['-ini']">
-    <!--input tpye="number" [(ngModel)]="hero.ini"-->
+  <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
     <span class="badge badge-ini">{{hero.ini}}</span>
     <span class="badge badge-hp">{{hero.hp}}</span>
     {{hero.name}}
-    <input tpye="number" [(ngModel)]="hero.ini">
   </li>
 </ul>
 
-<!--h2>{{hero.name}} details!!!</h2>
-<div></div>
-<div><label>id: </label>{{hero.id}}</div>
-<div><label>HP: </label>{{hero.hp-damage+hero.rs}}</div>
-<div>
-  <label>name: </label>
-  <input [(ngModel)]="hero.name" placeholder="name">
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name}} details!</h2>
+  <div>
+    <label>id: </label>
+    {{selectedHero.id}}
+  </div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    <br>
+    <label>ini: </label>
+    <input tpye="number" [(ngModel)]="selectedHero.ini"/>
+  </div>
 </div>
-<div>
-  <label>damage: </label>
-  <input tpye="number" [(ngModel)]="damage">
-</div-->
