@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {OrderByPipe} from './pipes/ini.pipe';
+import {OrderByPipe} from './pipes/orderBy.pipe';
 import { AppComponent } from './app.component';
 
 @NgModule({
