@@ -21,5 +21,9 @@
     <br>
     <label>ini: </label>
     <input tpye="number" [(ngModel)]="selectedHero.ini"/>
+    <label>damage: </label>
+
+    <input tpye="number" [(ngModel)]="damage"/>
+    <button (click)="dealDamage(damage)">damage</button>
   </div>
 </div>

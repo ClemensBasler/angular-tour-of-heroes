@@ -37,4 +37,8 @@ export class AppComponent {
     this.selectedHero = hero;
   }
 
+  dealDamage(damage): void {
+    this.selectedHero.hp -= damage;
+  }
+
 }
