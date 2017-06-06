@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 
-<h2>My Heroes</h2>
+<h2>Fightclub</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)"
    [ngClass]= "{'test': hero.dead}" [class.selected]="hero === selectedHero">
