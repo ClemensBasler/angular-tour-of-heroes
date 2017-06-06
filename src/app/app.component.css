@@ -51,3 +51,7 @@
   .badge-hp{
     background-color: #d50000;
   }
+
+  .test{
+    background-color: red !important;
+  }

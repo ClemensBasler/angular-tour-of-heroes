@@ -2,7 +2,8 @@
 
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+  <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)"
+   [ngClass]= "{'test': hero.dead}" [class.selected]="hero === selectedHero">
     <span class="badge badge-ini">{{hero.ini}}</span>
     <span class="badge badge-hp">{{hero.hp}}</span>
     {{hero.name}}
@@ -12,18 +13,18 @@
 <div *ngIf="selectedHero">
   <h2>{{selectedHero.name}} details!</h2>
   <div>
-    <label>id: </label>
-    {{selectedHero.id}}
+    <label>HP: </label>
+    {{selectedHero.hp}}
   </div>
   <div>
     <label>name: </label>
     <input [(ngModel)]="selectedHero.name" placeholder="name"/>
     <br>
     <label>ini: </label>
-    <input tpye="number" [(ngModel)]="selectedHero.ini"/>
+    <input type="number" [(ngModel)]="selectedHero.ini"/>
     <label>damage: </label>
 
-    <input tpye="number" [(ngModel)]="damage"/>
+    <input type="number" [(ngModel)]="damage"/>
     <button (click)="dealDamage(damage)">damage</button>
   </div>
 </div>
