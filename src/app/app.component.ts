@@ -34,13 +34,14 @@ export class AppComponent {
   selectedHero: Hero;
   onTurn = Hero[0];
   isVisible = false;
+  iniDamage = 0;
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 
   dealDamage(damage): void {
-    if (damage > this.selectedHero.rs) {
+    if (damage > this.selectedHero.rs || damage < 0) {
         this.selectedHero.hp -= (damage - this.selectedHero.rs);
     }
     if(this.selectedHero.hp < 0){
@@ -48,4 +49,10 @@ export class AppComponent {
     }
     this.damage = 0;
   }
+
+  dealIniDamage(iniDamage): void {
+        this.selectedHero.ini -= iniDamage;
+        this.iniDamage = 0;
+  }
+
 }
