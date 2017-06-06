@@ -12,19 +12,11 @@
 
 <div *ngIf="selectedHero">
   <h2>{{selectedHero.name}} details!</h2>
-  <div>
-    <label>HP: </label>
-    {{selectedHero.hp}}
-  </div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    <label>name: </label> <input [(ngModel)]="selectedHero.name" placeholder="name"/>
     <br>
-    <label>ini: </label>
-    <input type="number" [(ngModel)]="selectedHero.ini"/>
-    <label>damage: </label>
-
-    <input type="number" [(ngModel)]="damage"/>
-    <button (click)="dealDamage(damage)">damage</button>
-  </div>
+    <label>ini: </label><input type="number" [(ngModel)]="selectedHero.ini"/>
+    <label>ini-Malus: </label> <input type="number" [(ngModel)]="damage"/> <button (click)="dealDamage(damage)">ini-damage!</button>  
+    <br>
+    <label>HP: </label> <input type="number" [(ngModel)]="selectedHero.hp"/>
+    <label>damage: </label> <input type="number" [(ngModel)]="damage"/> <button (click)="dealDamage(damage)">damage</button>
 </div>

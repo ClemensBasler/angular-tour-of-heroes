@@ -8,6 +8,7 @@ export class Hero {
   dead: boolean;
 }
 
+// AT, PA, TP, GS, MR/MR, beondere Kampfregeln
 const HEROES: Hero[] = [
   { name: 'Schlange 1', hp: 30, rs: 1, ini: 20, dead: false },
   { name: 'Schlange 2', hp: 30, rs: 1, ini: 20, dead: false },
