@@ -10,6 +10,9 @@ export class Hero {
   mr2: number;
   wunde: number;
   wundschwelle: number;
+  AT: number;
+  PA: number;
+  GS: number;
 }
 
 // AT, PA, TP, GS, MR/MR, beondere Kampfregeln, Counter, neue Kampfrunde, wer ist dran?, Bogen/Armbrust
@@ -17,15 +20,15 @@ export class Hero {
 
 // AT-,PA-, FK- und INI-Basiswert sowie die GE sofort um je 2 Punkte pro, GS-1 Wunde sinken, die GS um I Punkt.
 const HEROES: Hero[] = [
-  { name: 'Schlange 1', hp: 30, rs: 1, ini: 20, mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Liscom', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Borbarad', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Skelett 1', hp: 30, rs: 1, ini: 21,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Eridon', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Akja', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Tharg', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
-  { name: 'Borbarads Mudda', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 }
+  { name: 'Schlange 1', hp: 30, rs: 1, ini: 20, mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8},
+  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8 },
+  { name: 'Liscom', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 15, PA: 10, GS: 8 },
+  { name: 'Borbarad', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 14, PA: 11, GS: 8 },
+  { name: 'Skelett 1', hp: 30, rs: 1, ini: 21,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 12, PA: 12, GS: 8 },
+  { name: 'Eridon', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8 },
+  { name: 'Akja', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8 },
+  { name: 'Tharg', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8 },
+  { name: 'Borbarads Mudda', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8 }
 ];
 
 @Component({
