@@ -1,5 +1,23 @@
 <h1>{{title}}</h1>
 
+<div *ngIf="selectedHero">
+  <h2>{{selectedHero.name}} details!</h2>
+    <label>name: </label> <input class="small-box not-so-small-box" [(ngModel)]="selectedHero.name" placeholder="name"/>
+    <label>RS: </label> <input class="small-box" [(ngModel)]="selectedHero.rs" type="number"/>
+    <label>MR1: </label> <input class="small-box" [(ngModel)]="selectedHero.mr1" type="number"/>
+    <label>MR2: </label> <input class="small-box" [(ngModel)]="selectedHero.mr2" type="number"/>
+    <br>
+    <label>ini: </label><input class="small-box" type="number" [(ngModel)]="selectedHero.ini"/>
+    <label>ini-Malus: </label>
+    <input class="small-box" type="number" [(ngModel)]="iniDamage"/>
+     <button (click)="dealIniDamage(iniDamage)">ini-damage!</button>
+    <br>
+    <label>HP: </label> <input class="small-box" type="number" [(ngModel)]="selectedHero.hp"/>
+    <label>damage: </label> <input class="small-box" type="number" [(ngModel)]="damage"/>
+    <input type="checkbox" [(ngModel)]="ignoreRs"/> {{ignoreRs}}
+    <button (click)="dealDamage(damage)">damage</button>
+</div>
+
 <h2>Fightclub</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)"
@@ -9,14 +27,3 @@
     {{hero.name}}
   </li>
 </ul>
-
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name}} details!</h2>
-    <label>name: </label> <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    <br>
-    <label>ini: </label><input type="number" [(ngModel)]="selectedHero.ini"/>
-    <label>ini-Malus: </label> <input type="number" [(ngModel)]="iniDamage"/> <button (click)="dealIniDamage(iniDamage)">ini-damage!</button>  
-    <br>
-    <label>HP: </label> <input type="number" [(ngModel)]="selectedHero.hp"/>
-    <label>damage: </label> <input type="number" [(ngModel)]="damage"/> <button (click)="dealDamage(damage)">damage</button>
-</div>
