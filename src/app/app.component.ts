@@ -8,20 +8,24 @@ export class Hero {
   dead: boolean;
   mr1: number;
   mr2: number;
+  wunde: number;
+  wundschwelle: number;
 }
 
 // AT, PA, TP, GS, MR/MR, beondere Kampfregeln, Counter, neue Kampfrunde, wer ist dran?, Bogen/Armbrust
 // Stati farblich => Wunden
+
+// AT-,PA-, FK- und INI-Basiswert sowie die GE sofort um je 2 Punkte pro, GS-1 Wunde sinken, die GS um I Punkt.
 const HEROES: Hero[] = [
-  { name: 'Schlange 1', hp: 30, rs: 1, ini: 20, mr1: 7, mr2: 5, dead: false },
-  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false },
-  { name: 'Liscom', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false },
-  { name: 'Borbarad', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false },
-  { name: 'Skelett 1', hp: 30, rs: 1, ini: 21,  mr1: 7, mr2: 5, dead: false },
-  { name: 'Eridon', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false },
-  { name: 'Akja', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false },
-  { name: 'Tharg', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false },
-  { name: 'Borbarads Mudda', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false }
+  { name: 'Schlange 1', hp: 30, rs: 1, ini: 20, mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Liscom', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Borbarad', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Skelett 1', hp: 30, rs: 1, ini: 21,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Eridon', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Akja', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Tharg', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 },
+  { name: 'Borbarads Mudda', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7 }
 ];
 
 @Component({
@@ -46,7 +50,9 @@ export class AppComponent {
 
   dealDamage(damage): void {
     if (this.ignoreRs == true || damage < 0) {
-
+      if(damage > this.selectedHero.wundschwelle){
+        this.selectedHero.wunde++;
+      }
       this.selectedHero.hp -= damage;
 
       if(this.selectedHero.hp > 0){
@@ -54,6 +60,9 @@ export class AppComponent {
       }
       this.ignoreRs = false;
     } else if (damage > this.selectedHero.rs) {
+      if(damage > this.selectedHero.wundschwelle + this.selectedHero.rs){
+        this.selectedHero.wunde++;
+      }
         this.selectedHero.hp -= (damage - this.selectedHero.rs);
     }
     if(this.selectedHero.hp < 0){
