@@ -18,7 +18,7 @@
     <br>
     <label>HP: </label> <input class="small-box" type="number" [(ngModel)]="selectedHero.hp"/>
     <label>damage: </label> <input class="small-box" type="number" [(ngModel)]="damage"/>
-    <input type="checkbox" [(ngModel)]="ignoreRs"/> {{ignoreRs}}
+    ignore RS: <input type="checkbox" [(ngModel)]="ignoreRs"/> {{ignoreRs}}
     <button (click)="dealDamage(damage)">damage</button>
 </div>
 
@@ -31,5 +31,7 @@
     {{hero.name}}
     AT: {{hero.AT}}
     PA: {{hero.PA}}
+    FK: {{hero.FK}}
+    FK: {{hero.GS}}
   </li>
 </ul>
