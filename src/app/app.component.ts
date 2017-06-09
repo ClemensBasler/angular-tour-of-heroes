@@ -56,9 +56,16 @@ export class AppComponent {
     this.selectedHero = hero;
   }
 
+
+  //if(this.ignoreRs == true || damage < 0) { effectveRS = 0 } else {blubb}
   dealDamage(damage): void {
     if (this.ignoreRs == true || damage < 0) {
       if(damage > this.selectedHero.wundschwelle){
+        let wundenCounter = (damage / this.selectedHero.wundschwelle) -1;
+        for(let i = 0; i < wundenCounter; i++){
+          console.log(i);
+        }
+        console.log(damage / this.selectedHero.wundschwelle);
         this.selectedHero.wunde++;
         // let int = damage % Wunde => Anzahl durchläufe => Anzahl der Wunden
         for(let i=0; i <=2; i++){
