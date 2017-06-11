@@ -20,6 +20,7 @@ export class Hero {
 // Stati farblich => Wunden
 // TP!!
 // GE sofort um 2 Punkte
+// Neuer Feind/Held eintragen
 const HEROES: Hero[] = [
   { name: 'Schlange 1',
     ini: 20, hp: 30,
@@ -60,48 +61,26 @@ export class AppComponent {
   //if(this.ignoreRs == true || damage < 0) { effectveRS = 0 } else {blubb}
   dealDamage(damage): void {
 
-    ///
     let effectiveRs = this.selectedHero.rs;
 
     if (this.ignoreRs == true || damage < 0) {
       effectiveRs = 0;
     }
-    //   if(damage > this.selectedHero.wundschwelle){
-    //     let wundenCounter = (damage / this.selectedHero.wundschwelle) -1;
-    //     for(let i = 0; i < wundenCounter; i++){
-    //       console.log(i);
-    //     }
-    //     console.log(damage / this.selectedHero.wundschwelle);
-    //     this.selectedHero.wunde++;
-    //     // let int = damage % Wunde => Anzahl durchläufe => Anzahl der Wunden
-    //     for(let i=0; i <=2; i++){
-    //       this.selectedHero.AT--;
-    //       this.selectedHero.PA--;
-    //       this.selectedHero.ini--;
-    //       this.selectedHero.FK--;
-    //     }
-    //     this.selectedHero.GS--;
-    //   }
-    //   this.selectedHero.hp -= damage;
-    //
-    //   if(this.selectedHero.hp > 0){
-    //     this.selectedHero.dead = false;
-    //   }
-    //   this.ignoreRs = false;
-    // } else if (damage > this.selectedHero.rs) {
-      if(damage > this.selectedHero.wundschwelle + effectiveRs){
-        this.selectedHero.wunde++;
+
+    if(damage > this.selectedHero.wundschwelle + effectiveRs){
+      let wundenCounter = ((damage-effectiveRs) / this.selectedHero.wundschwelle) -1;
+      for(let i = 0; i < wundenCounter; i++){
+      this.selectedHero.wunde++;
         for(let i=0; i < 2; i++){
           this.selectedHero.AT--;
           this.selectedHero.PA--;
           this.selectedHero.ini--;
           this.selectedHero.FK--;
         }
-        this.selectedHero.GS--;
+      this.selectedHero.GS--;
       }
-        this.selectedHero.hp -= (damage - effectiveRs);
-    //}
-    ////
+    }
+    this.selectedHero.hp -= (damage - effectiveRs);
 
     if(this.selectedHero.hp < 0){
       this.selectedHero.dead = true;
