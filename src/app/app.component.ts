@@ -21,11 +21,11 @@ export class Hero {
   }
 }
 
-// beondere Kampfregeln, Counter, neue Kampfrunde, wer ist dran?, Bogen/Armbrust
+// beondere Kampfregeln, Counter, neue Kampfrunde, Bogen/Armbrust TP
 // Stati farblich => Wunden
-// TP!!
 // GE sofort um 2 Punkte
-// Neuer Feind/Held eintragen
+// Neuer Feind/Held eintragen!!!!!!!!
+// wer ist dran?
 const HEROES: Hero[] = [
   { name: 'Schlange 1',
     ini: 20, hp: 30,
@@ -115,8 +115,6 @@ export class AppComponent {
     this.selectedHero = hero;
   }
 
-
-  //if(this.ignoreRs == true || damage < 0) { effectveRS = 0 } else {blubb}
   dealDamage(damage): void {
 
     let effectiveRs = this.selectedHero.rs;
@@ -150,6 +148,10 @@ export class AppComponent {
   dealIniDamage(iniDamage): void {
         this.selectedHero.ini -= iniDamage;
         this.iniDamage = 0;
+  }
+
+  nextFighter(){
+
   }
 
 }
