@@ -14,6 +14,11 @@ export class Hero {
   PA: number;
   GS: number;
   FK: number;
+  TP: {
+    diceCounter: number;
+    diceArt: number;
+    bonusdmg: number;
+  }
 }
 
 // beondere Kampfregeln, Counter, neue Kampfrunde, wer ist dran?, Bogen/Armbrust
@@ -26,15 +31,68 @@ const HEROES: Hero[] = [
     ini: 20, hp: 30,
     mr1: 7, mr2: 5, wundschwelle: 7,
     rs: 1, wunde: 0, AT: 10, PA: 12, FK: 0, GS: 8,
-    dead: false },
-  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0 },
-  { name: 'Liscom', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 15, PA: 10, GS: 8, FK: 0 },
-  { name: 'Borbarad', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 14, PA: 11, GS: 8, FK: 0 },
-  { name: 'Skelett 1', hp: 30, rs: 1, ini: 21,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 12, PA: 12, GS: 8, FK: 0 },
-  { name: 'Eridon', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0 },
-  { name: 'Akja', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0 },
-  { name: 'Tharg', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0 },
-  { name: 'Borbarads Mudda', hp: 30, rs: 1, ini: 50,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0 }
+    dead: false,
+    TP: {
+      diceCounter: 1,
+      diceArt: 6,
+      bonusdmg: 5
+    }
+   },
+  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } },
+  { name: 'Liscom', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false,
+  wunde: 0, wundschwelle: 7, AT: 15, PA: 10, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } },
+  { name: 'Borbarad', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false,
+  wunde: 0, wundschwelle: 7, AT: 14, PA: 11, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } },
+  { name: 'Skelett 1', hp: 30, rs: 1, ini: 21,  mr1: 7, mr2: 5,
+  dead: false, wunde: 0, wundschwelle: 7, AT: 12, PA: 12, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } },
+  { name: 'Eridon', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false,
+  wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } },
+  { name: 'Akja', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5,
+  dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } },
+  { name: 'Tharg', hp: 30, rs: 1, ini: 10,  mr1: 7, mr2: 5, dead: false,
+  wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } },
+  { name: 'Borbarads Mudda', hp: 30, rs: 1, ini: 50,  mr1: 7, mr2: 5, dead: false,
+  wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0,
+  TP: {
+    diceCounter: 1,
+    diceArt: 6,
+    bonusdmg: 5
+  } }
 ];
 
 @Component({
