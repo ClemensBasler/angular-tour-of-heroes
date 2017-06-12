@@ -24,9 +24,9 @@
 
 <h2>Fightclub</h2>
 <ul class="heroes">
-  <button (click)="nextFighter()">Next fighter</button>
+  {{heroes[2].name}}
   <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)"
-   [ngClass]= "{'test': hero.dead}" [class.selected]="hero === selectedHero">
+   [ngClass]= "{'test': hero.dead, 'lul': hero.onTurn}" [class.selected]="hero === selectedHero">
     <span class="badge badge-ini">{{hero.ini}}</span>
     <span class="badge badge-hp">{{hero.hp}}</span>
     {{hero.name}}
@@ -35,5 +35,8 @@
     <b>FK:</b> {{hero.FK}}
     <b>GS:</b> {{hero.GS}}
     <b>TP:</b> {{hero.TP.diceCounter}}W{{hero.TP.diceArt}}+{{hero.TP.bonusdmg}}
+    <b></b>
   </li>
+  {{heroes[2].name}}
+  <button (click)="nextFighter()">Next fighter</button>
 </ul>
