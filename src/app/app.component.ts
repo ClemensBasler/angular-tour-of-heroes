@@ -116,6 +116,7 @@ export class AppComponent implements OnInit{
   turnOfHero: Hero;
   turn = 0;
   heroPos = 0;
+  newPos = 0;
 
   ngOnInit() {
   this.heroes[this.turn].onTurn = true;
@@ -142,9 +143,13 @@ export class AppComponent implements OnInit{
     this.heroes[this.turn].onTurn = true;
 
   for(let i = 0; i < this.heroes.length; i++){
-    if(this.heroes[this.heroPos].ini < this.heroes[i].ini){
+    if(-this.heroes[this.heroPos].ini <= -this.heroes[i].ini){
       this.heroPos = i;
     }
+    // this.heroPos = this.newPos;
+    // this.newPos = 0;
+    // -30 => -20 => -10
+    //
     console.log(this.heroPos);
     console.log(this.heroes[this.heroPos].name);
     }
