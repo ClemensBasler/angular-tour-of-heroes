@@ -115,9 +115,18 @@ export class AppComponent implements OnInit{
 
   turnOfHero: Hero;
   turn = 0;
+  heroPos = 0;
 
   ngOnInit() {
   this.heroes[this.turn].onTurn = true;
+
+  for(let i = 0; i < this.heroes.length; i++){
+    if(this.heroes[this.heroPos].ini < this.heroes[i].ini){
+      this.heroPos = i;
+    }
+    console.log(this.heroPos);
+    console.log(this.heroes[this.heroPos].name);
+    }
   }
 
   onSelect(hero: Hero): void {
@@ -131,6 +140,14 @@ export class AppComponent implements OnInit{
       this.turn = 0;
     }
     this.heroes[this.turn].onTurn = true;
+
+  for(let i = 0; i < this.heroes.length; i++){
+    if(this.heroes[this.heroPos].ini < this.heroes[i].ini){
+      this.heroPos = i;
+    }
+    console.log(this.heroPos);
+    console.log(this.heroes[this.heroPos].name);
+    }
   }
 
   dealDamage(damage): void {
