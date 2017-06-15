@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import {OrderByPipe} from './pipes/orderBy.pipe';
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './components/util_components/hero-detail/hero-detail.component';
+import { HeroesComponent } from './components/routing_components/heroes/heroes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrderByPipe,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroesComponent
   ],
   imports: [
     BrowserModule,
