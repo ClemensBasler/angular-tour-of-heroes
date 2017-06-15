@@ -1,0 +1,21 @@
+<div *ngIf="hero">
+  <h2>{{hero.name}} details!</h2>
+    <label>name: </label> <input class="small-box not-so-small-box" [(ngModel)]="hero.name" placeholder="name"/>
+    <label>RS: </label> <input min="0" class="small-box" [(ngModel)]="hero.rs" type="number"/>
+    <label>MR1: </label> <input min="0" class="small-box" [(ngModel)]="hero.mr1" type="number"/>
+    <label>MR2: </label> <input min="0"class="small-box" [(ngModel)]="hero.mr2" type="number"/>
+    <label>Wunden: </label> <input min="0"class="small-box" [(ngModel)]="hero.wunde" type="number"/>
+    <label>Wundschwelle: </label> <input min="0" class="small-box" [(ngModel)]="hero.wundschwelle" type="number"/>
+    <br>
+    <br>
+    <label>ini: </label><input class="small-box" type="number" [(ngModel)]="hero.ini"/>
+    <label>ini-Malus: </label>
+    <input class="small-box" type="number" [(ngModel)]="iniDamage"/>
+     <button (click)="dealIniDamage(iniDamage)">ini-damage!</button>
+    <br>
+    <br>
+    <label>HP: </label> <input class="small-box" type="number" [(ngModel)]="hero.hp"/>
+    <label>damage: </label> <input class="small-box" type="number" [(ngModel)]="damage"/>
+    ignore RS: <input type="checkbox" [(ngModel)]="ignoreRs"/> {{ignoreRs}}
+    <button (click)="dealDamage(damage)">damage</button>
+</div>

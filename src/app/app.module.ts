@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import {OrderByPipe} from './pipes/orderBy.pipe';
 import { AppComponent } from './app.component';
+import { HeroDetailComponent } from './components/util_components/hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderByPipe
+    OrderByPipe,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,

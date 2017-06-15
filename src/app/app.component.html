@@ -1,26 +1,5 @@
 <h1>{{title}}</h1>
-
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name}} details!</h2>
-    <label>name: </label> <input class="small-box not-so-small-box" [(ngModel)]="selectedHero.name" placeholder="name"/>
-    <label>RS: </label> <input min="0" class="small-box" [(ngModel)]="selectedHero.rs" type="number"/>
-    <label>MR1: </label> <input min="0" class="small-box" [(ngModel)]="selectedHero.mr1" type="number"/>
-    <label>MR2: </label> <input min="0"class="small-box" [(ngModel)]="selectedHero.mr2" type="number"/>
-    <label>Wunden: </label> <input min="0"class="small-box" [(ngModel)]="selectedHero.wunde" type="number"/>
-    <label>Wundschwelle: </label> <input min="0" class="small-box" [(ngModel)]="selectedHero.wundschwelle" type="number"/>
-    <br>
-    <br>
-    <label>ini: </label><input class="small-box" type="number" [(ngModel)]="selectedHero.ini"/>
-    <label>ini-Malus: </label>
-    <input class="small-box" type="number" [(ngModel)]="iniDamage"/>
-     <button (click)="dealIniDamage(iniDamage)">ini-damage!</button>
-    <br>
-    <br>
-    <label>HP: </label> <input class="small-box" type="number" [(ngModel)]="selectedHero.hp"/>
-    <label>damage: </label> <input class="small-box" type="number" [(ngModel)]="damage"/>
-    ignore RS: <input type="checkbox" [(ngModel)]="ignoreRs"/> {{ignoreRs}}
-    <button (click)="dealDamage(damage)">damage</button>
-</div>
+<hero-detail [hero]="selectedHero"></hero-detail>
 
 <h2>Fightclub</h2>
 <ul class="heroes">
@@ -36,6 +15,7 @@
     <b>GS:</b> {{hero.GS}}
     <b>TP:</b> {{hero.TP.diceCounter}}W{{hero.TP.diceArt}}+{{hero.TP.bonusdmg}}
     <b></b>
+    <div *ngIf="last">showing {{ rowcount }} of {{ items.length }}</div>
   </li>
   {{heroes[2].name}}
   <button (click)="nextFighter()">Next fighter</button>

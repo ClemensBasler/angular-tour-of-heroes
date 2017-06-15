@@ -1,33 +1,12 @@
 import { Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
-
-export class Hero {
-  name: string;
-  hp: number;
-  rs: number;
-  ini: number;
-  dead: boolean;
-  mr1: number;
-  mr2: number;
-  wunde: number;
-  wundschwelle: number;
-  AT: number;
-  PA: number;
-  GS: number;
-  FK: number;
-  TP: {
-    diceCounter: number;
-    diceArt: number;
-    bonusdmg: number;
-  }
-  onTurn: boolean;
-}
+import { Hero } from './interfaces/hero';
 
 // beondere Kampfregeln, Counter, neue Kampfrunde, Bogen/Armbrust TP
 // Stati farblich => Wunden
 // GE sofort um 2 Punkte
 // Neuer Feind/Held eintragen!!!!!!!!
 // wer ist dran?
-// vorher!! nach Ini sortieren
+// vorher!! nach Ini sortieren => geht net
 const HEROES: Hero[] = [
   { name: 'Schlange 1',
     ini: 20, hp: 30,
@@ -105,14 +84,10 @@ const HEROES: Hero[] = [
 })
 export class AppComponent implements OnInit{
   title = 'Tour of heroes!';
-  damage = 0;
   heroes = HEROES;
   selectedHero: Hero;
   onTurn = Hero[0];
-  isVisible = false;
-  iniDamage = 0;
-  ignoreRs = false;
-
+  
   turnOfHero: Hero;
   turn = 0;
   heroPos = 0;
@@ -128,6 +103,12 @@ export class AppComponent implements OnInit{
     console.log(this.heroPos);
     console.log(this.heroes[this.heroPos].name);
     }
+
+    //
+    // let self:any = this;
+    // service.observable.subscribe((update:any) => {
+    //   self.heroes = update.heroes;
+    // })
   }
 
   onSelect(hero: Hero): void {
@@ -150,44 +131,11 @@ export class AppComponent implements OnInit{
     // this.newPos = 0;
     // -30 => -20 => -10
     //
+    // Service => Liste Tauschen anhangd der Ini => bekommt imemr nur den aktuellen Stand der Liste
+    // ngInit => sub auf Service => hat funktionen => udpate Ini für xy
     console.log(this.heroPos);
     console.log(this.heroes[this.heroPos].name);
     }
-  }
-
-  dealDamage(damage): void {
-
-    let effectiveRs = this.selectedHero.rs;
-
-    if (this.ignoreRs == true || damage < 0) {
-      effectiveRs = 0;
-    }
-
-    if(damage > this.selectedHero.wundschwelle + effectiveRs){
-      let wundenCounter = ((damage-effectiveRs) / this.selectedHero.wundschwelle) -1;
-      for(let i = 0; i < wundenCounter; i++){
-      this.selectedHero.wunde++;
-        for(let i=0; i < 2; i++){
-          this.selectedHero.AT--;
-          this.selectedHero.PA--;
-          this.selectedHero.ini--;
-          this.selectedHero.FK--;
-        }
-      this.selectedHero.GS--;
-      }
-    }
-    this.selectedHero.hp -= (damage - effectiveRs);
-
-    if(this.selectedHero.hp < 0){
-      this.selectedHero.dead = true;
-    }
-    this.ignoreRs = false;
-    this.damage = 0;
-  }
-
-  dealIniDamage(iniDamage): void {
-        this.selectedHero.ini -= iniDamage;
-        this.iniDamage = 0;
   }
 
 }
