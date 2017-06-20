@@ -12,7 +12,8 @@ export const HEROES: Hero[] = [
       bonusdmg: 5
     }, onTurn: false
    },
-  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false, wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0,
+  { name: 'Schlange 2', hp: 30, rs: 1, ini: 20,  mr1: 7, mr2: 5, dead: false,
+  wunde: 0, wundschwelle: 7, AT: 10, PA: 12, GS: 8, FK: 0,
   TP: {
     diceCounter: 1,
     diceArt: 6,
