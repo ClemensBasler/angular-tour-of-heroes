@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 <ul class="heroes">
+=======
+<h2>Fightclub</h2>
+<ul class="heroes">
+  {{heroes[2].name}}
+>>>>>>> 6cfe0a79c6d7a200246f63ccccd83c42b80cf42b
   <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)"
    [ngClass]= "{'test': hero.dead, 'lul': hero.onTurn}" [class.selected]="hero === selectedHero">
     <span class="badge badge-ini">{{hero.ini}}</span>
@@ -14,5 +20,9 @@
     <b></b>
     <div *ngIf="last">showing {{ rowcount }} of {{ items.length }}</div>
   </li>
+<<<<<<< HEAD
+=======
+  {{heroes[2].name}}
+>>>>>>> 6cfe0a79c6d7a200246f63ccccd83c42b80cf42b
   <button (click)="nextFighter()">Next fighter</button>
 </ul>
