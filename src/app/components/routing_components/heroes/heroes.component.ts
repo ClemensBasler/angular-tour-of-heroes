@@ -18,7 +18,6 @@ import { HeroServiceService } from './../../../services/hero-service.service';
 })
 
 export class HeroesComponent implements OnInit {
-  title = 'Tour of heroes!';
   heroes: Hero[];
   selectedHero: Hero;
   onTurn = Hero[0];
@@ -28,28 +27,7 @@ export class HeroesComponent implements OnInit {
   heroPos = 0;
   newPos = 0;
 
-  constructor(private heroService: HeroServiceService){
-
-  }
-
-  ngOnInit() {
-  this.getHeroes();
-  this.heroes[this.turn].onTurn = true;
-
-  for(let i = 0; i < this.heroes.length; i++){
-    if(this.heroes[this.heroPos].ini < this.heroes[i].ini){
-      this.heroPos = i;
-    }
-    console.log(this.heroPos);
-    console.log(this.heroes[this.heroPos].name);
-    }
-
-    //
-    // let self:any = this;
-    // service.observable.subscribe((update:any) => {
-    //   self.heroes = update.heroes;
-    // })
-  }
+  constructor(private heroService: HeroServiceService){}
 
   getHeroes(): void {
     this.heroService.getHeroes().then(heroes => this.heroes = heroes);
@@ -77,8 +55,22 @@ export class HeroesComponent implements OnInit {
     //
     // Service => Liste Tauschen anhangd der Ini => bekommt imemr nur den aktuellen Stand der Liste
     // ngInit => sub auf Service => hat funktionen => udpate Ini für xy
-    console.log(this.heroPos);
-    console.log(this.heroes[this.heroPos].name);
     }
+  }
+
+  ngOnInit(): void {
+    this.getHeroes();
+    // console.log(this.heroes[0]);
+  //this.heroes[this.turn].onTurn = true;
+
+  // for(let i = 0; i < this.heroes.length; i++){
+  //   if(this.heroes[this.heroPos].ini < this.heroes[i].ini){
+  //     this.heroPos = i;
+  //     }
+  //   }
+    // let self:any = this;
+    // service.observable.subscribe((update:any) => {
+    //   self.heroes = update.heroes;
+    // })
   }
 }
