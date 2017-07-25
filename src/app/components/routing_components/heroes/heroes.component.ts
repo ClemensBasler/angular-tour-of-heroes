@@ -9,6 +9,9 @@ import { HeroServiceService } from './../../../services/hero-service.service';
 // wer ist dran?
 // vorher!! nach Ini sortieren => geht net
 
+// Auswirkungen von low life
+// Eisern! Zäher Hund! 
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
