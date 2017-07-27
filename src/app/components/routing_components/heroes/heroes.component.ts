@@ -10,7 +10,7 @@ import { HeroServiceService } from './../../../services/hero-service.service';
 // vorher!! nach Ini sortieren => geht net
 
 // Auswirkungen von low life
-// Eisern! Zäher Hund! 
+// Eisern! Zäher Hund!
 
 @Component({
   selector: 'app-heroes',
@@ -41,15 +41,15 @@ export class HeroesComponent implements OnInit {
   }
 
   nextFighter(){
-    this.heroes[this.turn].onTurn = false;
+    this.heroes[this.turn].status.onTurn = false;
     this.turn++;
     if(this.turn >= this.heroes.length){
       this.turn = 0;
     }
-    this.heroes[this.turn].onTurn = true;
+    this.heroes[this.turn].status.onTurn = true;
 
   for(let i = 0; i < this.heroes.length; i++){
-    if(-this.heroes[this.heroPos].ini <= -this.heroes[i].ini){
+    if(-this.heroes[this.heroPos].stat.ini <= -this.heroes[i].stat.ini){
       this.heroPos = i;
     }
     // this.heroPos = this.newPos;
