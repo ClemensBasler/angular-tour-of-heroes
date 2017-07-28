@@ -3,14 +3,14 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes | orderBy : ['-ini']" (click)="onSelect(hero)"
    [ngClass]= "{'test': hero.dead, 'lul': hero.onTurn}" [class.selected]="hero === selectedHero">
-    <span class="badge badge-ini">{{hero.ini}}</span>
-    <span class="badge badge-hp">{{hero.hp}}</span>
+    <span class="badge badge-ini">{{hero.stat.ini}}</span>
+    <span class="badge badge-hp">{{hero.stat.hp}}</span>
     {{hero.name}}
-    <b>AT:</b> {{hero.AT}}
-    <b>PA:</b> {{hero.PA}}
-    <b>FK:</b> {{hero.FK}}
-    <b>GS:</b> {{hero.GS}}
-    <b>TP:</b> {{hero.TP.diceCounter}}W{{hero.TP.diceArt}}+{{hero.TP.bonusdmg}}
+    <b>AT:</b> {{hero.stat.AT}}
+    <b>PA:</b> {{hero.stat.PA}}
+    <b>FK:</b> {{hero.stat.FK}}
+    <b>GS:</b> {{hero.stat.GS}}
+    <b>TP:</b> {{hero.stat.TP.diceCounter}}W{{hero.stat.TP.diceArt}}+{{hero.stat.TP.bonusdmg}}
     <b></b>
     <div *ngIf="last">showing {{ rowcount }} of {{ items.length }}</div>
   </li>

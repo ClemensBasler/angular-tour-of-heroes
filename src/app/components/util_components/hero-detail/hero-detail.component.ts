@@ -15,7 +15,7 @@ export class HeroDetailComponent implements OnInit{
   currenthp = 0;
 
   ngOnInit() {
-    this.currenthp = this.hero.stat.hp;
+    //this.currenthp = this.hero.stat.hp;
   }
 
   dealDamage(damage): void {
